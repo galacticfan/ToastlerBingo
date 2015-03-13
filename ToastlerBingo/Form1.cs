@@ -22,40 +22,42 @@ namespace ToastlerBingo
         {
             using (DocX document = DocX.Create("tableToPrint.docx")) // create doc
             {
-                Table table = document.AddTable(3, 3);
-                table.Alignment = Alignment.center;
-
-                // Add content to table
-                table.Rows[0].Cells[0].Paragraphs.First().Append("A");
-                table.Rows[0].Cells[1].Paragraphs.First().Append("B");
-                table.Rows[0].Cells[2].Paragraphs.First().Append("C");
-                table.Rows[1].Cells[0].Paragraphs.First().Append("D");
-                table.Rows[1].Cells[1].Paragraphs.First().Append("E");
-                table.Rows[1].Cells[2].Paragraphs.First().Append("F");
-                table.Rows[2].Cells[0].Paragraphs.First().Append("D");
-                table.Rows[2].Cells[1].Paragraphs.First().Append("E");
-                table.Rows[2].Cells[2].Paragraphs.First().Append("F");
-
-                document.InsertTable(table);
-                document.Save();
-
-                // temp
                 try
                 {
                     string[] listOfStrings = generateRandom();
-                    string list = String.Empty;
-                    for (int i = 0; i < listOfStrings.Length; i++)
+
+                    // Debugging Code
+                    //string list = String.Empty;
+                    //for (int i = 0; i < listOfStrings.Length; i++)
+                    //{
+                    //    list += listOfStrings[i] + Environment.NewLine;
+                    //}
+                    //MessageBox.Show(list);
+
+                    Table table = document.AddTable(3, 3);
+                    table.Alignment = Alignment.center;
+
+                    // Add content to table
+                    for (int j = 0; j <= 2; j++)
                     {
-                        list += listOfStrings[i] + Environment.NewLine;
+                        table.Rows[0].Cells[j].Paragraphs.First().Append(listOfStrings[j]);
                     }
-                    MessageBox.Show(list);    
-                    //MessageBox.Show(listOfStrings[0]);
+                    for (int k = 0; k <= 2; k++)
+                    {
+                        table.Rows[1].Cells[k].Paragraphs.First().Append(listOfStrings[k+3]);
+                    }
+                    for (int m = 0; m <= 2; m++)
+                    {
+                        table.Rows[2].Cells[m].Paragraphs.First().Append(listOfStrings[m+6]);
+                    }
+
+                    document.InsertTable(table);
+                    document.Save();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-
             }
         }
 
