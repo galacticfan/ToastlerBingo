@@ -48,7 +48,7 @@
             this.ClientSize = new System.Drawing.Size(131, 98);
             this.Controls.Add(this.printBtn);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Bingo Generator";
             this.ResumeLayout(false);
 
         }

@@ -78,7 +78,18 @@ namespace ToastlerBingo
             string twelve = "Uses the ruler on the board";
             string thirteen = "Talks to Randles";
             string fourteen = "Gives you hand out as you walk in the lesson";
-
+            string fifteen = "Mentions the importance of setting out your work correctly";
+            string sixteen = "Randles interrupts lesson";
+            string seventeen = "\"Not sure is not an option\"";
+            string eighteen = "Stresses importance of learning material";
+            string nineteen = "When you ask her for help and she gives you her undivided attention";
+            string twenty = "When you ask her for a question and you don't get the answer you want";
+            string twentyone = "Moves quickly and efficiently around the lab corridor";
+            string twentytwo = "\"Homework help\"";
+            string twentythree = "Reads what she has written on the board";
+            string twentyfour = "Refers back to previous homework questions";
+            
+            // Random generator
             Random rnd = new Random();
             int rndNum = 0;
             int counter = 0;
@@ -87,7 +98,7 @@ namespace ToastlerBingo
 
             while (arrayCounter(currentList) < 9)
             {
-                rndNum = rnd.Next(1, 15);
+                rndNum = rnd.Next(1, 25);
                 switch(rndNum)
                 {
                     case 1:
@@ -185,6 +196,76 @@ namespace ToastlerBingo
                         if (alreadyUsed(currentList, fourteen) == false)
                         {
                             currentList[counter] = fourteen;
+                            counter += 1;
+                        }
+                        break;
+                    case 15:
+                        if (alreadyUsed(currentList, fifteen) == false)
+                        {
+                            currentList[counter] = fifteen;
+                            counter += 1;
+                        }
+                        break;
+                    case 16:
+                        if (alreadyUsed(currentList, sixteen) == false)
+                        {
+                            currentList[counter] = sixteen;
+                            counter += 1;
+                        }
+                        break;
+                    case 17:
+                        if (alreadyUsed(currentList, seventeen) == false)
+                        {
+                            currentList[counter] = seventeen;
+                            counter += 1;
+                        }
+                        break;
+                    case 18:
+                        if (alreadyUsed(currentList, eighteen) == false)
+                        {
+                            currentList[counter] = eighteen;
+                            counter += 1;
+                        }
+                        break;
+                    case 19:
+                        if (alreadyUsed(currentList, nineteen) == false)
+                        {
+                            currentList[counter] = nineteen;
+                            counter += 1;
+                        }
+                        break;
+                    case 20:
+                        if (alreadyUsed(currentList, twenty) == false)
+                        {
+                            currentList[counter] = twenty;
+                            counter += 1;
+                        }
+                        break;
+                    case 21:
+                        if (alreadyUsed(currentList, twentyone) == false)
+                        {
+                            currentList[counter] = twentyone;
+                            counter += 1;
+                        }
+                        break;
+                    case 22:
+                        if (alreadyUsed(currentList, twentytwo) == false)
+                        {
+                            currentList[counter] = twentytwo;
+                            counter += 1;
+                        }
+                        break;
+                    case 23:
+                        if (alreadyUsed(currentList, twentythree) == false)
+                        {
+                            currentList[counter] = twentythree;
+                            counter += 1;
+                        }
+                        break;
+                    case 24:
+                        if (alreadyUsed(currentList, twentyfour) == false)
+                        {
+                            currentList[counter] = twentyfour;
                             counter += 1;
                         }
                         break;
