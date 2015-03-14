@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,8 +25,6 @@ namespace ToastlerBingo
             {
                 try
                 {
-                    string[] listOfStrings = generateRandom();
-
                     // Debugging Code
                     //string list = String.Empty;
                     //for (int i = 0; i < listOfStrings.Length; i++)
@@ -34,31 +33,55 @@ namespace ToastlerBingo
                     //}
                     //MessageBox.Show(list);
 
-                    Table table = document.AddTable(3, 3);
-                    table.Alignment = Alignment.center;
+                    insertTable(document, 3);
 
-                    // Add content to table
-                    for (int j = 0; j <= 2; j++)
-                    {
-                        table.Rows[0].Cells[j].Paragraphs.First().Append(listOfStrings[j]);
-                    }
-                    for (int k = 0; k <= 2; k++)
-                    {
-                        table.Rows[1].Cells[k].Paragraphs.First().Append(listOfStrings[k+3]);
-                    }
-                    for (int m = 0; m <= 2; m++)
-                    {
-                        table.Rows[2].Cells[m].Paragraphs.First().Append(listOfStrings[m+6]);
-                    }
-
-                    document.InsertTable(table);
-                    document.Save();
+                    // Open word
+                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + "tableToPrint.docx");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void insertTable(DocX doc, int numberTables)
+        {
+            int counter = 0;
+
+            while (counter < numberTables)
+            {
+                string[] wordList = generateRandom();
+
+                Table table = doc.AddTable(3, 3);
+                table.Alignment = Alignment.center;
+
+                // Add content to table
+                for (int j = 0; j <= 2; j++)
+                {
+                    table.Rows[0].Cells[j].Paragraphs.First().Append(wordList[j]);
+                }
+                for (int k = 0; k <= 2; k++)
+                {
+                    table.Rows[1].Cells[k].Paragraphs.First().Append(wordList[k + 3]);
+                }
+                for (int m = 0; m <= 2; m++)
+                {
+                    table.Rows[2].Cells[m].Paragraphs.First().Append(wordList[m + 6]);
+                }
+
+                doc.InsertTable(table);
+                insertBreak(doc);
+
+                doc.Save();
+
+                counter += 1;
+            }
+        }
+
+        private void insertBreak(DocX doc)
+        {
+            Paragraph pBreak = doc.InsertParagraph("\n\n\n\n"); 
         }
 
         private string[] generateRandom()

@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.printBtn = new System.Windows.Forms.Button();
+            this.generateBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // printBtn
+            // generateBtn
             // 
-            this.printBtn.Location = new System.Drawing.Point(12, 12);
-            this.printBtn.Name = "printBtn";
-            this.printBtn.Size = new System.Drawing.Size(102, 71);
-            this.printBtn.TabIndex = 0;
-            this.printBtn.Text = "Print Random Bingo Sheet";
-            this.printBtn.UseVisualStyleBackColor = true;
-            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
+            this.generateBtn.Location = new System.Drawing.Point(12, 12);
+            this.generateBtn.Name = "generateBtn";
+            this.generateBtn.Size = new System.Drawing.Size(102, 71);
+            this.generateBtn.TabIndex = 0;
+            this.generateBtn.Text = "Generate Random Bingo Sheet";
+            this.generateBtn.UseVisualStyleBackColor = true;
+            this.generateBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(131, 98);
-            this.Controls.Add(this.printBtn);
+            this.Controls.Add(this.generateBtn);
             this.Name = "Form1";
             this.Text = "Bingo Generator";
             this.ResumeLayout(false);
@@ -55,7 +55,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button printBtn;
+        private System.Windows.Forms.Button generateBtn;
     }
 }
 
