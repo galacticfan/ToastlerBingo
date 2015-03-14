@@ -25,6 +25,9 @@ namespace ToastlerBingo
             {
                 try
                 {
+                    int outputNum = 0;
+                    int numOfTables = 0;
+
                     // Debugging Code
                     //string list = String.Empty;
                     //for (int i = 0; i < listOfStrings.Length; i++)
@@ -33,10 +36,18 @@ namespace ToastlerBingo
                     //}
                     //MessageBox.Show(list);
 
-                    insertTable(document, 3);
+                    if (int.TryParse(tableNumberTxtBox.Text, out outputNum) == false)
+                    {
+                        MessageBox.Show("Must enter a number into the table number box.");
+                    }
+                    else
+                    {
+                        numOfTables = int.Parse(tableNumberTxtBox.Text);
+                        insertTable(document, numOfTables);
 
-                    // Open word
-                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + "tableToPrint.docx");
+                        // Open word
+                        Process.Start(AppDomain.CurrentDomain.BaseDirectory + "tableToPrint.docx");
+                    }
                 }
                 catch (Exception ex)
                 {
